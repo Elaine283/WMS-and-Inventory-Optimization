@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧物流：從 WMS 到庫存最佳化</title>
+    <style>
+        :root {
+            --primary-blue: #2c3e50;
+            --secondary-blue: #3498db;
+            --accent-orange: #e67e22;
+            --danger-red: #e74c3c;
+            --light-gray: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 { margin: 0; font-size: 2.5em; }
+        h2 { border-left: 5px solid var(--secondary-blue); padding-left: 15px; color: var(--primary-blue); margin-top: 40px; }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .formula-box {
+            background-color: #eef2f3;
+            border: 2px dashed var(--secondary-blue);
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th { background-color: var(--primary-blue); color: white; }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid var(--accent-orange);
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .badge-red { color: var(--danger-red); font-weight: bold; }
+        .badge-blue { color: var(--secondary-blue); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>從「怎麼管」升級到「管多少」</h1>
+    <p>現代化倉儲管理的執行與策略全解析</p>
+</header>
+
+<div class="container">
+    
+    <h2>一、兩大核心：WMS 與 庫存最佳化</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3><span class="badge-blue">WMS 系統 (執行面)</span></h3>
+            <p><strong>大腦的雙手：</strong> 負責完美執行每一個動作。</p>
+            <ul>
+                <li>收貨、入庫、儲位管理</li>
+                <li>數位化揀貨、包裝、出貨</li>
+                <li>即時庫存變動紀錄</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3><span class="badge-blue">庫存最佳化 (策略面)</span></h3>
+            <p><strong>物流的大腦：</strong> 決定進什麼貨、進多少。</p>
+            <ul>
+                <li>需求預測與採購計畫</li>
+                <li>安全庫存與訂購點計算</li>
+                <li>減少呆滯料與資金積壓</li>
+            </ul>
+        </div>
+    </div>
+    <p class="highlight">「WMS 幫你完美執行動作，但如果倉庫堆滿了賣不出的垃圾，系統再快也沒用。我們需要的是智慧化的策略核心。」</p>
+
+    <h2>二、水塔理論：為什麼需要安全庫存？</h2>
+    <p>想像倉庫是一個水塔，管理目標就是「確保不斷水，也不溢出」。</p>
+    <div class="card">
+        <ul>
+            <li><strong>消耗率：</strong> 水龍頭一直漏水（每天賣出的商品）。</li>
+            <li><strong>前置時間：</strong> 抽水馬達補水需要時間（廠商送貨時間）。</li>
+            <li><strong>安全庫存：</strong> 水塔底部的<span class="badge-red">危險紅區</span>。這是保命符，確保在廠商塞車或銷量突增時不會缺貨。</li>
+        </ul>
+    </div>
+
+    <div class="formula-box">
+        核心公式：<strong>訂購點 (ROP) = (平均日銷量 × 前置時間) + 安全庫存</strong>
+    </div>
+
+    <h2>三、庫存生命週期：鋸齒狀模型</h2>
+    <p>透過數據監控，我們能看見庫存隨時間呈現穩定的鋸齒波動：</p>
+    
+    <table>
+        <tr>
+            <th>階段</th>
+            <th>說明</th>
+        </tr>
+        <tr>
+            <td><strong>最高庫存</strong></td>
+            <td>剛進完貨的最滿狀態，資金佔用最高的時刻。</td>
+        </tr>
+        <tr>
+            <td><strong>消耗期 (斜坡向下)</strong></td>
+            <td>商品正常銷售，庫存水位穩定下降。</td>
+        </tr>
+        <tr>
+            <td><strong>訂購點 (ROP)</strong></td>
+            <td>觸碰警報線！系統自動提醒該打電話叫貨了。</td>
+        </tr>
+        <tr>
+            <td><strong>前置時間等待</strong></td>
+            <td>貨在路上，庫存繼續下降，直到新貨抵達後瞬間拉回高水位。</td>
+        </tr>
+    </table>
+
+    <h2>四、注意事項總結</h2>
+    <ul>
+        <li><strong>數據品質：</strong> 垃圾進，垃圾出。錯誤的銷售紀錄會導致錯誤的預測。</li>
+        <li><strong>動態調整：</strong> 旺季、促銷活動時，應提早調高「安全庫存」水位。</li>
+        <li><strong>整合優勢：</strong> 應將 WMS 現場數據與 ERP 採購系統串聯，實現自動化補貨。</li>
+    </ul>
+
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 智慧物流管理系統教學頁面 | Powered by NotebookLM 邏輯架構</p>
+</div>
+
+</body>
+</html>
